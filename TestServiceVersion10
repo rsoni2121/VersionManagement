@@ -1,0 +1,101 @@
+FORMAT: 1A
+HOST: http://TestService.apiblueprint.org/
+
+
+# TestService
+
+TestService Web Service
+
+## TestService Operations [/testservice]
+
+### Create Order [POST /v2/order] 
+
+Create new Order
+
++  Request (application/json)
+
+        {
+            "ProductName": "name of Product",
+            "CustomerName": "Customer name",
+            "Price": "Order Price",
+            "Qty": "Order Quantity",
+            "CreatedDate": "Sun, 17 Dec 2018 22:28:52 GMT",
+        }
+        
++ Response 200 (application/json)
+
+
+   + Body
+
+            {
+            "CreatedDate": "Sun, 10 Nov 2018 21:28:52 GMT",
+             "Status": "OK",
+             "OrderID": "ORDER300281"
+            }
+
+
+### Get Details [GET /v1/details] 
+
+Get Order Details
+
++  Request (application/json)
+
+
+        {
+            "OrderID": 31234
+        }
+
+        
++ Response 200 (application/json)
+
+
+   + Body
+
+          
+            {
+            "CreatedDate": "Sun, 12 Nov 2018 21:28:52 GMT",
+             "OrderID": "ORDER300561",
+             "ProductName": "Stationary  Papers",
+             "CustomerName": "Ashima Soni",
+             "Price": "3.20",
+             "Qty": "1455"
+             }
+             
+             
+### Get Details [GET /v2/details] 
+
+Get Order Details
+
++  Request (application/json)
+
+
+        {
+            "OrderID": 31234
+        }
+
+        
++ Response 200 (application/json)
+
+
+   + Body
+
+            [
+            {
+            "CreatedDate": "Sun, 12 Nov 2018 21:28:52 GMT",
+             "OrderID": "ORDER300281",
+             "ProductName": "Printer Plain Papers",
+             "CustomerName": "Rakesh Soni",
+             "Price": "10.50",
+             "Qty": "15"
+             },
+             {
+            "CreatedDate": "Sun, 11 Nov 2018 21:28:52 GMT",
+             "OrderID": "ORDER300282",
+             "ProductName": "HP Printer",
+             "CustomerName": "Rakesh Soni",
+             "Price": "58",
+             "Qty": "1"
+             }
+             ]
+             
+             
