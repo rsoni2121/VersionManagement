@@ -1,0 +1,150 @@
+FORMAT: 1A
+HOST: http://TestService.apiblueprint.org/
+
+
+# TestService
+
+TestService Web Service Version
+
+API Versioning
+
+The API is versioned by the version number in the URL, for example, if the URL is:
+
+https://TestService.apiblueprint.org/v1/some/api/endpoint
+
+Then the version of the API and endpoint in question is version 2 (v2). When new versions are released, 
+the version numbering will be incremented, that means, next version will have the following URL:
+
+https://TestService.apiblueprint.org/v2/some/api/endpoint
+
+and so on.
+
+Now, when version 3 is released, the old version 2 will still be available and possibly deprecated, that means, it will still work until removed. When APIs reach deprecated availability status, the application should be updated to use the newer version of the APIs as soon as possible.
+
+    The API version number in the URL indicates the major version of the API. There can be minor updates to the APIs which do not change the major version number. The major version changes only when large changes are made which break backward compatibility severely.
+
+
+
+## TestService Operations [/testservice]
+
+### Create Order [POST /v1/order] 
+
+Create new Order
+
++  Request (application/json)
+
+        {
+            "ProductName": "name of Product",
+            "CustomerName": "Customer name",
+            "Price": "Order Price",
+            "Qty": "Order Quantity",
+            "CreatedDate": "Sun, 17 Dec 2018 22:28:52 GMT",
+        }
+        
++ Response 200 (application/json)
+
+
+   + Body
+
+            {
+            "CreatedDate": "Sun, 10 Nov 2018 21:28:52 GMT",
+             "Status": "OK",
+             "OrderID": "ORDER300281"
+            }
+
+
+
+
+### Get Details [GET /v1/details] 
+
+Get Order Details
+
++  Request (application/json)
+
+
+        {
+            "OrderID": 31234
+        }
+
+        
++ Response 200 (application/json)
+
+
+   + Body
+
+            {
+            "CreatedDate": "Sun, 10 Nov 2018 21:28:52 GMT",
+             "OrderID": "ORDER300281",
+             "ProductName": "Printer Plain Papers",
+             "CustomerName": "Rakesh Soni",
+             "Price": "10.50",
+             "Qty": "15"
+             }
+
+### Get Details [GET /v2/details] 
+
+Get Order Details
+
++  Request (application/json)
+
+
+        {
+            "OrderID": 31234
+        }
+
+        
++ Response 200 (application/json)
+
+
+   + Body
+
+            {
+            "CreatedDate": "Sat, 16 Nov 2018 21:28:52 GMT",
+             "OrderID": "ORD/19/038472",
+             "ProductName": "Laptop",
+             "CustomerName": "Ashima Soni",
+             "ProductCategory": "Electronics",
+             "Price": "975.50",
+             "Qty": "56"
+             }
+             
+             
+### List of Order [GET /v1/orders] 
+
+List of Order
+
++ Request (application/json)
+        
++ Response 200 (application/json)     
+        
+ 
+   + Body
+
+            {
+            "data": 
+            [
+            {
+            "CreatedDate": "Sun, 10 Nov 2018 21:28:52 GMT",
+            "OrderID": "ORDER300281", 
+            "ProductName": "Printer Plain Papers", 
+            "CustomerName": "Rakesh Soni",
+            "ProductCategory": "Papers",
+            "Price": "10.50",
+            "Qty": "15"
+            },
+            {
+            "CreatedDate": "Sat, 16 Nov 2018 21:28:52 GMT",
+            "OrderID": "ORD/19/038472", 
+            "ProductName": "Laptop",
+            "CustomerName": "Ashima Soni",
+            "ProductCategory": "Electronics",
+            "Price": "975.50",
+            "Qty": "56"
+            }
+            ]
+            }
+
+
+
+        
+##
